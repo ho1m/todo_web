@@ -13,7 +13,6 @@ window.addEventListener('load', () => {
     let todos = [];
 
     // API CALLERS
-
     async function getTodos(limit) {
         const url = `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`;
 
@@ -28,7 +27,6 @@ window.addEventListener('load', () => {
             console.error(error.message);
         }
     }
-
     async function postTodo(todo) {
         const url = `https://jsonplaceholder.typicode.com/todos`;
 
@@ -50,7 +48,6 @@ window.addEventListener('load', () => {
     }
 
     // 
-
     function loadTodos(container) {
         todoContainer.innerHTML = "";
         todos.forEach(({ id, title, completed }) => {
@@ -76,7 +73,6 @@ window.addEventListener('load', () => {
             container.appendChild(col);
         })
     }
-
     function addTodo(todo) {
         todos = [
             {
@@ -118,13 +114,19 @@ window.addEventListener('load', () => {
         todos = todos.filter(todo => todo.id !== id)
         loadTodos(todoContainer);
     }
-
     function handleSubmit(e) {
         e.preventDefault();
-        const title = e.target[0].value;
-        postTodo({ title, completed: false });
-        this.reset();
+        const input = e.target[0];
+        const title = input.value;
+        if (title) {
+            input.classList.remove('is-invalid')
+            postTodo({ title, completed: false });
+            this.reset();
+        } else {
+            input.classList.add('is-invalid')
+        }
     }
+
     todoForm.addEventListener('submit', handleSubmit);
 
     getTodos(10);

@@ -11,9 +11,12 @@
     <header>
         <section id="add-todo-container" class="container my-5">
             <div class="content">
-                <form id="todo-form" class="d-flex align-items-center justify-content-center ">
-                <input type="text" autocomplete="off" class="me-3" id="todo-input" placeholder="add todo here...">
-                <button type="submit" class="btn btn-dark">add</button>
+                <form id="todo-form" class="d-flex justify-content-center align-items-center">
+                    <div class="form-group me-3">
+                    <input type="text" autocomplete="off" class=" form-control" id="todo-input" placeholder="add todo here...">
+                    <div class="invalid-feedback">Någonting måste du ha o göra?</div>
+                    </div>
+                    <button type="submit" class="btn btn-dark px-3">add</button>
                 </form>
             </div>
         </section>
@@ -22,7 +25,6 @@
     <main>
         <section id="todos-container" class="container my-5">
             <div class="content row g-4 overflow-hidden">
-                
                 <!-- <div class="col-12 col-md-4">
                 <div class="todo-post card incomplete box-shadow border-0 rounded p-1 bg-dark text-white">
                     <div class="card-body">
@@ -35,8 +37,6 @@
                     </div>
                 </div>
                 </div> -->
-
-
             </div>
         </section>
     </main>
